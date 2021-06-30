@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(75, 205, 220);
+}
+
+#intro {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    background-color: white;
+    height: 20px;
+}
+
+#background {
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    height: 45px
+}
+
+
+
+.deck {
+	width: 75%;
+	background: rgb(75, 205, 220);
+	padding: 100px;
+	border-radius: 2px;
+    display:-ms-inline-grid;
+	align-items: center;
+    
+}
+
+.card {
+background-size:contain;
+height: 246.75px;
+width: 155.25px;
+	background-image: url("images/cardBack.png");
+	border-radius: 15px;
+	cursor: pointer;
+	display: inline-grid;
+    grid-gap: 10px 10px;
+	justify-content: center;
+	align-items: center;
+  
+}
+
+.deck .card.open {
+	transform: rotateY(0);
+	background: #02b3e4;
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+}
+
+
