@@ -60,28 +60,20 @@ function shuffleCards()
     }
 };
 
-
-
 function createCards()
 {
     for (let card of cards)
     {
         var drawnCard = document.createElement("img");
         drawnCard.src = "images/cardBack.png"
-        drawnCard.setAttribute("class", "cardCSS");
+        drawnCard.setAttribute("class", "card");
         drawnCard.num = card.num
-        drawnCard.addEventListener("click", test, false);    // adds eventListener of "click" to the card variable
+        drawnCard.addEventListener("click", showCard, false);    // adds eventListener of "click" to the card variable
         drawnCards.push(drawnCard)
         background.appendChild(drawnCard);
     }
     console.log(drawnCards)
-}
-
-function test() // temporary replacement for showcard
-{
-    this.shown = true
-    visualizeCards()
-}
+};
 
 function visualizeCards() // Used to draw the cards on the document
 {
@@ -103,4 +95,4 @@ function visualizeCards() // Used to draw the cards on the document
             drawnCard.src = "images/cardBack.png"
         }
     }
-}
+};

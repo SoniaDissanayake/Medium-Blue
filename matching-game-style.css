@@ -4,16 +4,15 @@ body {
 
 #background {
     background-color: white;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 50px;
-    height: 1000px
+    align-items: center;
 }
 
-.cardCSS {
-    background-color: yellow;
-    height: 200px;
-    width: 100px;
-    margin: 20px;
-    float: left;
+.card {
+    color: lightgrey;
+    width: 18rem;
+    margin:25px;
+}
+
+.row {
+    margin: 25px;
 }
