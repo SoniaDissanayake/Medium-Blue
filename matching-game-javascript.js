@@ -66,7 +66,8 @@ function createCards()
 {
     for (let card of cards)
     {
-        var drawnCard = document.createElement("div");
+        var drawnCard = document.createElement("img");
+        drawnCard.src = "images/cardBack.png"
         drawnCard.setAttribute("class", "cardCSS");
         drawnCard.num = card.num
         drawnCard.addEventListener("click", test, false);    // adds eventListener of "click" to the card variable
@@ -89,14 +90,17 @@ function visualizeCards() // Used to draw the cards on the document
     {
         if (drawnCard.shown) 
         {
-            if (drawnCard.value = 1) 
+            for (i=1; i<9; i++) 
             {
-              drawnCard.textContent = 1  
+                if (drawnCard.num == i) 
+                {
+                drawnCard.src = "images/card" + i + ".png"
+                }
             }
         }
         else
         {
-            console.log("woo no")
+            drawnCard.src = "images/cardBack.png"
         }
     }
 }
