@@ -1,8 +1,10 @@
 // Global Variables
 var cards = [];         // store all the cards
+var drawnCards = [];    // stores all drawn cards
 var turnCounter = 0;    // the number of turns
 var clicksLeft = 2;     // The number of card flips the player has left before a turn is counted
 var faceUpCards = [];   // The two cards that the player picks to flip over in a turn
+var background = document.getElementById("background"); // for accessing the gameboard
 
 // Functions
 cardsSetup();
@@ -16,7 +18,6 @@ function cardsSetup()
     for(var i = 0; i < 16; i += 2)
     {
         var card = {num: numberCounter, shown: false, matched: false};      // adds value of numberCounter to the card, adds value of whether or not the card has been shown or not, adds value of whether or not the card has already been matched with another
-        card.addEventListener("click", showCard, false);    // adds eventListener of "click" to the card variable
         cards[i] = card;                                    // sets the card variable to two of the cards[] indices 
         cards[i + 1] = card;
         numberCounter++;                                    // incremenets numberCounter, this variable should go from 1 to 8 throughout the for-loop
@@ -27,6 +28,7 @@ function cardsSetup()
 function gameSetup()
 {
     shuffleCards();         // shuffle the cards
+    createCards();          // creates div elements of the cards
 }
 
 // The function that is triggered by the eventListeners on each of the cards. This function is run whenever the user clicks on one of the cards
@@ -55,5 +57,46 @@ function shuffleCards()
         var temp = cards[selection1];
         cards[selection1] = cards[selection2];
         cards[selection2] = temp;
+    }
+};
+
+
+
+function createCards()
+{
+    for (let card of cards)
+    {
+        var drawnCard = document.createElement("div");
+        drawnCard.setAttribute("class", "cardCSS");
+        drawnCard.num = card.num
+        drawnCard.addEventListener("click", test, false);    // adds eventListener of "click" to the card variable
+        drawnCards.push(drawnCard)
+        background.appendChild(drawnCard);
+    }
+    console.log(drawnCards)
+}
+
+function test() // temporary replacement for showcard
+{
+    this.shown = true
+    visualizeCards()
+}
+
+function visualizeCards() // Used to draw the cards on the document
+{
+    console.log(drawnCards)
+    for (let drawnCard of drawnCards) // Iterates through each of the cards
+    {
+        if (drawnCard.shown) 
+        {
+            if (drawnCard.value = 1) 
+            {
+              drawnCard.textContent = 1  
+            }
+        }
+        else
+        {
+            console.log("woo no")
+        }
     }
 }
