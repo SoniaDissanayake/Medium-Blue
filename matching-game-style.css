@@ -2,18 +2,17 @@ body {
     background-color: rgb(75, 205, 220);
 }
 
-#intro {
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 50px;
-    background-color: white;
-    height: 200px;
-}
-
 #background {
     background-color: white;
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 50px;
-    height: 450px
+    align-items: center;
+}
+
+.card {
+    color: lightgrey;
+    width: 18rem;
+    margin:25px;
+}
+
+.row {
+    margin: 25px;
 }
