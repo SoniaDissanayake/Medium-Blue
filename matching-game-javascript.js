@@ -66,7 +66,7 @@ function createCards()
     for (let card of cards)
     {
         var drawnCard = document.createElement("img");
-        drawnCard.src = "images/cardBack.png"
+        drawnCard.src = "/images/cardBack.png"
         drawnCard.setAttribute("class", "card");
         drawnCard.num = card.num
         drawnCard.addEventListener("click", showCard, false);    // adds eventListener of "click" to the card variable
