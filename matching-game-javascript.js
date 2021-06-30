@@ -61,10 +61,10 @@ function checkIfMatch(secondCard);
         secondCard.matched = true;
         matchedCards += 2;
     }
-    firstCard = null;
     turnCounter++;
     firstCard.shown = false;
     secondCard.shown = false;
+    firstCard = null;
 }
 
 function checkGameOver()
