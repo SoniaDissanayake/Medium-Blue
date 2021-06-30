@@ -1,94 +1,84 @@
 // Global Variables
 var cards = [];         // store all the cards
+var drawnCards = [];    // stores all drawn cards
 var turnCounter = 0;    // the number of turns
-var values = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];        // number values to be stored in the cards
-var firstCard;          // a variable that stores the first card the player clicks on
-var matchedCards = 0;   // counts the number of matched cards. When this variable reaches a value of 16, the game is over
-var background = document.getElementById("background");               // for accessing the gameboard
-
+// var clicksLeft = 2;     // The number of card flips the player has left before a turn is counted
+// var faceUpCards = [];   // The two cards that the player picks to flip over in a turn
+var background = document.getElementById("background"); // for accessing the gameboard
+var values = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];      // values to be stored into each card
+var matchedCards = 0;   // The number of matched cards on the board
+var firstCard;          // The first card that the user clicks on
 
 // Functions
-// initiate();
 gameSetup();
 
-// Setups the event listeners and the cards[] array. Only ever called once
-// function initiate()
-// {
-//     cards = document.getElementsByClassName("card");            // gets all 16 card elements from the document and stores them into cards[]
-//     for(var i = 0; i < 16; i++)
-//     {
-//         cards[i].addEventListener("click", showCard, false);    // adds eventListeners to each card element
-//     }
-// }
-
-// Adds a number value to each card through the "num" attribute. Also makes sure that all the cards can be clicked on
+// The function that will add all the cards into the cards array. Also adds eventListeners to every card.
+// Will only be run once at the very start of the game
 function cardsSetup()
 {
     for(var i = 0; i < 16; i += 2)
     {
-        var card = {num: value[i], shown: false, matched: false};       // adds value of numberCounter to the card, adds value of whether or not the card has been shown or not, adds value of whether or not the card has already been matched with another
-        cards[i] = card;                          // sets the card variable to two of the cards[] indices 
-        cards[i + 1] = card;                      
+        var card = {num: values[i], shown: false, matched: false};      // adds value of numberCounter to the card, adds value of whether or not the card has been shown or not, adds value of whether or not the card has already been matched with another
+        cards[i] = card;                                    // sets the card variable to two of the cards[] indices 
+        cards[i + 1] = card;                               // incremenets numberCounter, this variable should go from 1 to 8 throughout the for-loop
     }
 }
 
-// The function that will start/reset the game to its original state
+// The function that will start/reset the game back to its original state
 function gameSetup()
 {
-    shuffleValues();        // shuffle the values
-    cardsSetup();           // re-initialize the value for each card
-    createCards();          // creates div elements of the cards
-    turnCounter = 0;        // resets the turn counter
-    matchedCards = 0;       // resets the matchedCards counter
+    shuffleValues();         // shuffle the values
+    cardsSetup();            // sets up the cards array
+    createCards();           // creates div elements of the cards
+    turnCounter = 0;         // resetting the counter variables
+    matchedCounter = 0;
 }
 
-// The function that is triggered by the eventListeners on each of the cards. This function is run whenever the player clicks 
-// on one of the cards
+// The function that is triggered by the eventListeners on each of the cards. This function is run whenever the user clicks on one of the cards
 function showCard()
 {
     if(!this.shown && !this.matched)   // if the card's "shown" value is false (meaning it's flipped over), and if this card hasn't been matched yet, then we flip the card over and set the "shown" value to true
     {
         this.shown = true;
-        // CODE TO MAKE THE CARD FLIP OVER ON THE SCREEN GOES HERE
-        clicksLeft--;
-        faceUpCards.push(this);         // pushes this card that has been flipped faceUp into the array of flipped up cards
-
-        if(clicksLeft == 0)
+        
+        if(firstCard == null)
         {
-            checkIfMatch();             // if clicksLeft = 0, the turn is over. We now check to see if the two flipped up cards are a match or not
+            firstCard = this;
+        }
+        else
+        {
+            checkIfMatch(this);
         }
     }
+    checkGameOver();
 }
 
-// This function is called after the player has flipped over two cards. It will check the player's flipped cards, with the
-// first card being represented by firstCard and the second card being represented by the parameter secondCard
-// function checkIfMatch(secondCard)
-// {
-//     if(firstCard.num == secondCard.num)         // if both match
-//     {
-//         firstCard.disabled = true;              // These two cards are now unclickable and will not provoke the showCard() function if clicked
-//         secondCard.disabled = true;
-//         matchedCards += 2;                      // Increment the number of matched cards by two
-//     }
-//     firstCard = null;                           // reset the firstCard variable
-//     turnCounter++;                              // increment the turn counter
-// }
+function checkIfMatch(secondCard);
+{
+    if(firstCard.num == secondCard.num)
+    {
+        firstCard.matched = true;
+        secondCard.matched = true;
+        matchedCards += 2;
+    }
+    firstCard = null;
+    turnCounter++;
+    firstCard.shown = false;
+    secondCard.shown = false;
+}
 
-// Checks if the game is over by looking at the value of matchedCards
 function checkGameOver()
 {
-    if(matchedCards == 16)
+    if(matchedCounter == 16)
     {
-        gameSetup();            // reset the game 
+        gameSetup();
+        alert("YOU WIN!\n\nTurns: " + turnCounter);
     }
-    // DISPLAY THE TURN COUNTER HERE
-    alert("YOU WIN!\n\nTurns: " + turnCounter);
 }
 
-// Shuffles the values in the values[] array
 function shuffleValues()
 {
-    for (i = 0; i < 100; i++) 
+    for (i=0; i<100; i++) 
     {
         var selection1 = Math.floor(Math.random() * 16);
         var selection2 = Math.floor(Math.random() * 16);
@@ -96,27 +86,22 @@ function shuffleValues()
         values[selection1] = values[selection2];
         values[selection2] = temp;
     }
-}
+};
 
 function createCards()
 {
     for (let card of cards)
     {
-        var drawnCard = document.createElement("div");
-        drawnCard.setAttribute("class", "cardCSS");
+        var drawnCard = document.createElement("img");
+        drawnCard.src = "images/cardBack.png"
+        drawnCard.setAttribute("class", "card");
         drawnCard.num = card.num
-        drawnCard.addEventListener("click", test, false);    // adds eventListener of "click" to the card variable
+        drawnCard.addEventListener("click", showCard, false);    // adds eventListener of "click" to the card variable
         drawnCards.push(drawnCard)
         background.appendChild(drawnCard);
     }
     console.log(drawnCards)
-}
-
-function test() // temporary replacement for showcard
-{
-    this.shown = true
-    visualizeCards()
-}
+};
 
 function visualizeCards() // Used to draw the cards on the document
 {
@@ -125,14 +110,17 @@ function visualizeCards() // Used to draw the cards on the document
     {
         if (drawnCard.shown) 
         {
-            if (drawnCard.value = 1) 
+            for (i=1; i<9; i++) 
             {
-              drawnCard.textContent = 1  
+                if (drawnCard.num == i) 
+                {
+                drawnCard.src = "images/card" + i + ".png"
+                }
             }
         }
         else
         {
-            console.log("woo no")
+            drawnCard.src = "images/cardBack.png"
         }
     }
-}
+};
