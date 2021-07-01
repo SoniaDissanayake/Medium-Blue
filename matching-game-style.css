@@ -9,7 +9,7 @@ body {
 .card {
     color: lightgrey;
     width: 25%;
-    margin: 25px;
+    margin: auto;
 }
 
 .gameCard {
