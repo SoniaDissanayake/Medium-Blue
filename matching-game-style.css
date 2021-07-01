@@ -4,30 +4,17 @@ body {
 
 .container {
     padding: 20px;
-
 }
 
-#background {
-    background-color: white;
-    align-items: center;
-
-    margin-left: 200px;
-    margin-right: 200px;
-    margin-top: 40px;
-}
-​
 .card {
     color: lightgrey;
     width: 25%;
     margin: 25px;
 }
-​
 
-}
-
-.card {
+.gameCard {
     color: lightgrey;
-    width: 18rem;
+    width: 25%;
     margin:25px;
 }
 
@@ -35,3 +22,4 @@ body {
 .row {
     margin: 25px;
 }
+
