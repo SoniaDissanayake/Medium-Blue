@@ -5,12 +5,178 @@
         <link rel="icon" href="images/yeah.jpg">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="matching-game-javascript.js" defer></script>
+
+        <link href="matching-game-style.css" type="text/css" rel="stylesheet">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link href="matching-game-style.css" type="text/css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <div id="background">
+
+            <div class="container">
+              <h2>Directions in the modal.</h2>
+              <!-- Trigger the modal with a button -->
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click here</button>
+            
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">How to play:</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <p>In this game, the goal is to match all of the cards. Click a card to turn it over, and then click whichever card you think will match it. If they're not compatible, they'll flip back over so you can try again. Have fun!</p>
+                    </div>
+                  
+                  </div>
+                  
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="card bg-light w-75">
+                      <div class="card-body">
+                        <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card bg-light w-75">
+                      <div class="card-body">
+                        <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card bg-light w-75">
+                      <div class="card-body">
+                        <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card bg-light w-75">
+                      <div class="card-body">
+                        <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <div class="card bg-light w-75">
+                        <div class="card-body">
+                          <img class="card-img-top" src="https://www.civhc.org/wp-content/uploads/2018/10/question-mark.png" alt="Card image cap">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+           
+
         <!-- Div for putting instructions on how to play -->
         <div id="intro">
             <button class="btn btn-default" data-toggle="modal" data-target="#Rules">How to Play the Game</button>
@@ -30,6 +196,7 @@
                     </div> 
                </div>
             
+
         </div>
         <!-- Div for the gameboard --> 
         <div id="background">            
