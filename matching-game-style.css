@@ -2,16 +2,22 @@ body {
     background-color: rgb(75, 205, 220);
 }
 
-#background {
-    background-color: white;
-    align-items: center;
+.container {
+    padding: 20px;
 }
-
+​
 .card {
     color: lightgrey;
-    width: 18rem;
+    width: 25%;
+    margin: 25px;
+}
+
+.gameCard {
+    color: lightgrey;
+    width: 25%;
     margin:25px;
 }
+
 
 .row {
     margin: 25px;

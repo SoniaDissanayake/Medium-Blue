@@ -1,9 +1,16 @@
 // Global Variables
 var cards = [];         // store all the cards
 var drawnCards = [];    // stores all drawn cards
-var background = document.getElementById("background"); // for accessing the gameboard
 var values = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];      // values to be stored into each card
 var firstCard;          // The first card that the user clicks on
+
+// Audio
+var successSound = document.createElement("audio");
+successSound.setAttribute("src", "win.wav");
+var failSound = document.createElement("audio");
+failSound.setAttribute("src", "fail.wav");
+var gameOverSound = document.createElement("audio");
+gameOverSound.setAttribute("src", "gameOver.wav");
 
 // Functions
 gameSetup();
@@ -62,11 +69,13 @@ function checkIfMatch(secondCard)
         firstCard.matched = true;
         secondCard.matched = true;
         matchedCounter += 2;
+        successSound.play();
     }
     else 
     {
         firstCard.shown = false;
         secondCard.shown = false;
+        failSound.play();
     }
     turnCounter ++;
     firstCard = null;
@@ -76,6 +85,7 @@ function checkGameOver()
 {
     if(matchedCounter == 16)
     {
+        gameOverSound.play();
         alert("YOU WIN!\n\nTurns: " + turnCounter);
         gameSetup();
         visualizeCards();
@@ -96,15 +106,16 @@ function shuffleValues()
 
 function createCards()
 {
-    for (let card of cards)
+    for (i=0; i<16; i++)
     {
         var drawnCard = document.createElement("img");
+        var targetDiv = document.getElementById("card-body" + i)
         drawnCard.src = "images/cardBack.png"
-        drawnCard.setAttribute("class", "card");
-        drawnCard.num = card.num;
+        drawnCard.setAttribute("class", "gameCard");
+        drawnCard.num = cards[i].num;
         drawnCard.addEventListener("click", showCard, false);    // adds eventListener of "click" to the card variable
         drawnCards.push(drawnCard)
-        background.appendChild(drawnCard);
+        targetDiv.appendChild(drawnCard);
     }
 };
 
