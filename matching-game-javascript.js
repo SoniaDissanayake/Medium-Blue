@@ -14,72 +14,69 @@ gameSetup();
 
 // The function that will add all the cards into the cards array. Also adds eventListeners to every card.
 // Will only be run once at the very start of the game
-function cardsSetup()
-{
-    for(var i = 0; i < 16; i += 2)
-    {
-        var card = {num: values[i], shown: false, matched: false};      // adds value of numberCounter to the card, adds value of whether or not the card has been shown or not, adds value of whether or not the card has already been matched with another
-        cards[i] = card;                                    // sets the card variable to two of the cards[] indices 
-        cards[i + 1] = card;                               // incremenets numberCounter, this variable should go from 1 to 8 throughout the for-loop
+function cardsSetup() {
+    for (var i = 0; i < 16; i += 2) {
+        var card1 = { num: values[i], shown: false, matched: false };      // adds value of numberCounter to the card, adds value of whether or not the card has been shown or not, adds value of whether or not the card has already been matched with another
+        var card2 = { num: values[i + 1], shown: false, matched: false };
+        cards[i] = card1;                                    // sets the card variable to two of the cards[] indices 
+        cards[i + 1] = card2;                               // incremenets numberCounter, this variable should go from 1 to 8 throughout the for-loop
     }
 }
 
 // The function that will start/reset the game back to its original state
-function gameSetup()
-{
+function gameSetup() {
+    deleteDrawnCards();
+    cards.length = 0;
+    drawnCards.length = 0;
     shuffleValues();         // shuffle the values
     cardsSetup();            // sets up the cards array
     createCards();           // creates div elements of the cards
     turnCounter = 0;         // resetting the counter variables
-    matchedCounter = 0;
+    matchedCards = 0;
+    visualizeCards();
 }
 
 // The function that is triggered by the eventListeners on each of the cards. This function is run whenever the user clicks on one of the cards
-function showCard()
-{
-    if(!this.shown && !this.matched)   // if the card's "shown" value is false (meaning it's flipped over), and if this card hasn't been matched yet, then we flip the card over and set the "shown" value to true
+function showCard() {
+    if (!this.shown && !this.matched)   // if the card's "shown" value is false (meaning it's flipped over), and if this card hasn't been matched yet, then we flip the card over and set the "shown" value to true
     {
         this.shown = true;
-        
-        if(firstCard == null)
-        {
+        visualizeCards();
+        if (firstCard == null) {
             firstCard = this;
         }
-        else
-        {
+        else {
             checkIfMatch(this);
         }
     }
     checkGameOver();
 }
 
-function checkIfMatch(secondCard);
-{
-    if(firstCard.num == secondCard.num)
-    {
+function checkIfMatch(secondCard) {
+    if (firstCard.num == secondCard.num) {
         firstCard.matched = true;
         secondCard.matched = true;
         matchedCards += 2;
     }
+    else {
+        firstCard.shown = false;
+        secondCard.shown = false;
+    }
     turnCounter++;
-    firstCard.shown = false;
-    secondCard.shown = false;
     firstCard = null;
 }
 
-function checkGameOver()
-{
-    if(matchedCounter == 16)
-    {
-        gameSetup();
+function checkGameOver() {
+    if (matchedCards == 16) {
+        visualizeCards();
         alert("YOU WIN!\n\nTurns: " + turnCounter);
+
+        gameSetup();
     }
 }
 
-function shuffleValues()
-{
-    for (i=0; i<100; i++) 
-    {
+function shuffleValues() {
+    for (i = 0; i < 100; i++) {
         var selection1 = Math.floor(Math.random() * 16);
         var selection2 = Math.floor(Math.random() * 16);
         var temp = values[selection1];
@@ -88,10 +85,8 @@ function shuffleValues()
     }
 };
 
-function createCards()
-{
-    for (let card of cards)
-    {
+function createCards() {
+    for (let card of cards) {
         var drawnCard = document.createElement("img");
         drawnCard.src = "images/cardBack.png"
         drawnCard.setAttribute("class", "card");
@@ -103,23 +98,27 @@ function createCards()
     console.log(drawnCards)
 };
 
+function deleteDrawnCards()
+{
+    for (let drawnCard of drawnCards)
+    {
+        drawnCard.remove()
+    }
+}
+
 function visualizeCards() // Used to draw the cards on the document
 {
     console.log(drawnCards)
     for (let drawnCard of drawnCards) // Iterates through each of the cards
     {
-        if (drawnCard.shown) 
-        {
-            for (i=1; i<9; i++) 
-            {
-                if (drawnCard.num == i) 
-                {
-                drawnCard.src = "images/card" + i + ".png"
+        if (drawnCard.shown) {
+            for (i = 1; i < 9; i++) {
+                if (drawnCard.num == i) {
+                    drawnCard.src = "images/card" + i + ".png"
                 }
             }
         }
-        else
-        {
+        else {
             drawnCard.src = "images/cardBack.png"
         }
     }
