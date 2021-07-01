@@ -5,6 +5,7 @@
         <link rel="icon" href="images/yeah.jpg">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="matching-game-javascript.js" defer></script>
+
         <link href="matching-game-style.css" type="text/css" rel="stylesheet">
         
         <meta charset="utf-8">
@@ -12,9 +13,14 @@
 
      <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <link href="matching-game-style.css" type="text/css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -170,6 +176,31 @@
                   </div>
               </div>
            
+
+        <!-- Div for putting instructions on how to play -->
+        <div id="intro">
+            <button class="btn btn-default" data-toggle="modal" data-target="#Rules">How to Play the Game</button>
+            <div id="Rules" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Rules</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>1. Click on a card in order to flip it over.<br>2. Then click on another card to flip it over. <br>3. If the cards are a match, they stay flipped over, but if they aren't a match, the cards are flipped back over. <br>4. Flip over all of the matching pairs to win the game.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div> 
+               </div>
+            
+
         </div>
+        <!-- Div for the gameboard --> 
+        <div id="background">            
+        </div>
+  
     </body>
 </html>

@@ -10,6 +10,7 @@ body {
 #background {
     background-color: white;
     align-items: center;
+
     margin-left: 200px;
     margin-right: 200px;
     margin-top: 40px;
@@ -21,6 +22,16 @@ body {
     margin: 25px;
 }
 ​
+
+}
+
+.card {
+    color: lightgrey;
+    width: 18rem;
+    margin:25px;
+}
+
+
 .row {
     margin: 25px;
 }
