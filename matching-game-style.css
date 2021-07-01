@@ -2,10 +2,25 @@ body {
     background-color: rgb(75, 205, 220);
 }
 
+.container {
+    padding: 20px;
+
+}
+
 #background {
     background-color: white;
+    align-items: center;
     margin-left: 200px;
     margin-right: 200px;
-    margin-top: 50px;
-    height: 650px
+    margin-top: 40px;
+}
+​
+.card {
+    color: lightgrey;
+    width: 25%;
+    margin: 25px;
+}
+​
+.row {
+    margin: 25px;
 }
