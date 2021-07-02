@@ -2,6 +2,28 @@ body {
     background-color: rgb(75, 205, 220);
 }
 
+<<<<<<< HEAD
+.container {
+    padding: 20px;
+}
+
+.card {
+    color: lightgrey;
+    width: 25%;
+    margin: auto;
+}
+
+.gameCard {
+    color: lightgrey;
+    width: 100%;
+}
+
+
+.row {
+    margin: 25px;
+}
+
+=======
 
 #background {
     background-color: white;
@@ -52,3 +74,4 @@ body {
     transform: translate(-50%, -50%);
 
 }
+>>>>>>> Taiga
